@@ -50,16 +50,16 @@ int main(){
                 pthread_join(prod_thread, NULL);
             }else{
                 printf("Buffer is full. Cannot produce more items.\n");
-                break;
             }
+            break;
             case 2:
             if(consumed_count < produced_count){
                 pthread_create(&cons_thread, NULL, consumer, NULL);
                 pthread_join(cons_thread, NULL);
             }else{
                 printf("Buffer is empty. Cannot consume more items.\n");
-                break;
             }
+            break;
             case 3:
             sem_destroy(&mutex);
             sem_destroy(&full);
